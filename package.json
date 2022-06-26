@@ -1,0 +1,20 @@
+{
+  "name": "carrier_sheet",
+  "version": "1.0.0",
+  "description": "yujimiyashitaの職務経歴書",
+  "scripts": {
+    "lint": "textlint docs/README.md",
+    "lint:fix": "textlint --fix docs/README.md",
+    "build:pdf": "md-to-pdf docs/README.md --config-file ./pdf-configs/config.js"
+  },
+  "devDependencies": {
+    "md-to-pdf": "^5.1.0",
+    "textlint": "^12.1.1",
+    "textlint-rule-preset-ja-spacing": "^2.2.0",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/YujiMiyashita/career_sheet.git",
+  "author": "<ruby.miya334@gmail.com>",
+  "license": "MIT"
+}
