@@ -351,8 +351,8 @@ h2 + ol > li {
   border-left: 4px solid var(--accent);
   border-radius: 5px;
   counter-increment: pr;
-  margin: 0 0 0.6em;
-  padding: 0.6em 0.8em;
+  margin: 0 0 0.45em;
+  padding: 0.4em 0.65em;
 }
 
 @media print {
@@ -368,17 +368,19 @@ h2 + ol > li {
 }
 
 h2 + ol > li > p {
-  align-items: start;
-  display: grid;
-  gap: 0 1.1em;
-  grid-template-columns: 12em 1fr;
   margin: 0;
 }
 
 h2 + ol > li > p > strong {
   color: var(--accent);
+  display: block;
   font-weight: 700;
   line-height: 1.45;
+  margin-bottom: 0.2em;
+}
+
+h2 + ol > li > p > strong + br {
+  display: none;
 }
 
 h2 + ol > li > p > strong::before {
