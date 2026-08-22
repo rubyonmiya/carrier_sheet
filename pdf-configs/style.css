@@ -1,41 +1,374 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 
-body {
-  font-size: 12px;
-  font-family: "Noto Sans Japanese", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+:root {
+  --accent: #1f6b4a;
+  --text: #333333;
+  --muted: #6b7280;
+  --border: #d9dee5;
+  --surface: #f4f6f8;
+  --highlight: #b42318;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text);
+  font-size: 10.5px;
+  font-family: "Noto Sans Japanese", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  line-height: 1.65;
+  margin: 0;
+}
+
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+/* タイトル */
 h1:first-child {
+  color: var(--accent);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.45em;
+  line-height: 1.2;
+  margin: 0 0 0.35em;
+  padding: 0;
+  text-align: left;
+}
+
+/* 氏名・職種 | 日付 */
+h1 + p {
+  align-items: baseline;
+  border-bottom: 1.5px solid var(--accent);
+  color: #444;
+  display: flex;
+  font-size: 11.5px;
+  justify-content: space-between;
+  margin: 0 0 1.1em;
+  padding-bottom: 0.45em;
+}
+
+h1 + p br {
+  display: none;
+}
+
+h1 + p em {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-style: normal;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* セクション見出し */
+h2 {
+  border-bottom: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  margin: 1.15em 0 0.55em;
+  padding: 0 0 0.25em 0.55em;
+}
+
+h2:first-of-type,
+.page-break + h2 {
   margin-top: 0;
-  padding-top: 0;
+}
+
+/* 職務要約の囲み */
+h2:first-of-type + p {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin: 0;
+  padding: 0.85em 1em;
+}
+
+.account-links {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45em;
+  margin: -0.15em 0 0.4em;
+}
+
+.account-links a {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--accent);
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.15em 0.8em;
+  text-decoration: none;
+}
+
+.company-history {
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  margin: -0.15em 0 0.5em;
+  padding: 0 0.2em 0.35em;
+}
+
+.company-history strong {
+  color: var(--accent);
+}
+
+/* 区切り線はレイアウトに使わない */
+hr {
+  border: 0;
+  display: none;
+  margin: 0;
+}
+
+.page-break {
+  break-after: page;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  page-break-after: always;
+}
+
+/* スキルテーブル */
+table {
+  border-collapse: collapse;
+  display: table;
+  font-size: 10px;
+  margin: 0;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 0.55em 0.7em;
+  vertical-align: middle;
+}
+
+th {
+  background-color: var(--surface);
+  color: #555;
+  font-weight: 700;
   text-align: center;
 }
 
-table {
-  font-size: 11px;
-  border-collapse: collapse;
-}
-
-td,
-th {
-  border: 1px solid #ddd;
-  padding: 5px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-tr:hover {
-  background-color: #ddd;
-}
-
-th {
+h2 + table th:last-child,
+h2 + table td:last-child {
   text-align: left;
-  background-color: #ddd;
+  white-space: normal;
+  width: auto;
 }
 
-hr {
-  border-top: 1px solid #ddd;
-  margin: 30px 0;
+tr,
+tr:nth-child(even) {
+  background-color: #fff;
+}
+
+td:first-child,
+th:first-child {
+  width: 22%;
+}
+
+td:last-child,
+th:last-child {
+  text-align: center;
+  white-space: nowrap;
+  width: 11%;
+}
+
+td:first-child,
+td:first-child strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* 技術タグ */
+td code {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: #444;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 9.5px;
+  line-height: 1.4;
+  margin: 0.12em 0.15em;
+  padding: 0.1em 0.45em;
+  white-space: nowrap;
+}
+
+.skill-highlight {
+  align-items: center;
+  background: #e7f2ed;
+  border: 1px solid #b8d5c7;
+  border-radius: 4px;
+  color: var(--accent);
+  display: inline-flex;
+  gap: 0.3em;
+  margin: 0.12em 0.15em;
+  padding: 0.1em 0.4em;
+  white-space: nowrap;
+}
+
+.skill-highlight code {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-highlight small {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 400;
+}
+
+/* プロジェクト見出し（タイトル | 期間） */
+h3 {
+  align-items: baseline;
+  border: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 6px 6px 0 0;
+  color: var(--accent);
+  display: flex;
+  font-size: 11.5px;
+  font-weight: 700;
+  gap: 0.8em;
+  justify-content: space-between;
+  line-height: 1.4;
+  margin: 1em 0 0;
+  padding: 0.5em 0.75em 0.4em;
+}
+
+h3 .period {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* プロジェクトカード本体 */
+h3 + p,
+h3 + p + p,
+h3 + p + p + p,
+h3 + p + p + p + p {
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  margin: 0;
+  padding: 0.1em 0.75em;
+}
+
+h3 + p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15em 1.4em;
+  padding-top: 0.4em;
+}
+
+h3 + p + p {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4em;
+}
+
+h3 + p + p + p {
+  padding-top: 0.45em;
+}
+
+.project-description {
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 6px 6px;
+  padding-bottom: 0.4em;
+}
+
+h3 + p + p + p + p {
+  padding-top: 0.4em;
+}
+
+.project-label {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h3 + p + p + p + p + ul {
+  border: 1px solid var(--border);
+  border-radius: 0 0 6px 6px;
+  border-top: 0;
+  list-style: none;
+  margin: 0 0 0.55em;
+  padding: 0.05em 0.75em 0.5em;
+}
+
+.meta-row span {
+  min-width: 42%;
+}
+
+ul li {
+  margin: 0.12em 0;
+}
+
+/* 成果の強調 */
+ul li > strong:first-child {
+  color: var(--text);
+  font-weight: 700;
+}
+
+ul li strong:not(:first-child) {
+  color: var(--highlight);
+}
+
+/* 自己PR */
+h2 + ol {
+  counter-reset: pr;
+  list-style: none;
+  margin: 0.1em 0 0;
+  padding: 0;
+}
+
+h2 + ol > li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 5px;
+  counter-increment: pr;
+  margin: 0 0 0.6em;
+  padding: 0.6em 0.8em;
+}
+
+h2 + ol > li > p {
+  align-items: start;
+  display: grid;
+  gap: 0 1.1em;
+  grid-template-columns: 12em 1fr;
+  margin: 0;
+}
+
+h2 + ol > li > p > strong {
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+h2 + ol > li > p > strong::before {
+  content: counter(pr) ". ";
+}
+
+h2 + ul {
+  padding-left: 1.8em;
+}
+
+/* 改ページ */
+table {
+  break-inside: avoid;
+}
+
+h2 {
+  break-after: avoid;
 }

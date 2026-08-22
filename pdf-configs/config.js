@@ -7,10 +7,10 @@ module.exports = {
   },
   pdf_options: {
     "format": "A4",
-    "margin": "30mm 20mm",
+    "margin": "16mm 14mm 18mm 14mm",
     "printBackground": true,
-    "headerTemplate": "<style>\n  section {\n    margin: 0 auto;\n    font-size: 9px;\n  }\n</style>",
-    "footerTemplate": "<section>\n  <div>\n    <span class=\"pageNumber\"></span>\n    / <span class=\"totalPages\"></span>\n  </div>\n</section>"
+    "headerTemplate": "<span></span>",
+    "footerTemplate": "<div style=\"font-size:9px; color:#9ca3af; width:100%; text-align:right; padding-right:14mm;\"><span class=\"pageNumber\"></span> / <span class=\"totalPages\"></span></div>"
   },
   stylesheet_encoding: "utf-8",
 };
