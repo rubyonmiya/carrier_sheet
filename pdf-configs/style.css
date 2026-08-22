@@ -116,6 +116,10 @@ h2:first-of-type + p {
   padding: 0 0.2em 0.35em;
 }
 
+ul + .company-history {
+  margin-top: 1.15em;
+}
+
 .company-history strong {
   color: var(--accent);
 }
