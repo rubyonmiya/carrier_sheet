@@ -112,10 +112,18 @@ h2:first-of-type + p {
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--accent);
-  display: inline-block;
+  align-items: center;
+  display: inline-flex;
+  gap: 0.45em;
   font-weight: 700;
   padding: 0.15em 0.8em;
   text-decoration: none;
+}
+
+.account-icon {
+  display: block;
+  height: 1.25em;
+  width: 1.25em;
 }
 
 .company-history {
