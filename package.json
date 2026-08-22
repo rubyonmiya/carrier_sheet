@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "textlint docs/README.md",
     "lint:fix": "textlint --fix docs/README.md",
-    "build:pdf": "md-to-pdf docs/README.md --config-file ./pdf-configs/config.js"
+    "build:pdf": "node scripts/build-pdf.js"
   },
   "devDependencies": {
     "md-to-pdf": "^5.1.0",
