@@ -151,31 +151,35 @@
         <span>担当役割： 開発リーダー / テックリード / スクラムマスター</span><span>エンジニア： 10名</span>
       </p>
       <p class="tech-stack">
-        使用技術： Node.js / TypeScript / MySQL / Serverless Framework / Trino<br />外部サービス： LINE API / SendGrid /
-        Twilio / Unlayer<br />AWS： Redshift / Aurora / DynamoDB / OpenSearch / ECS / S3<br />AI： Claude / Cursor /
-        Devin
+        使用技術： Node.js / TypeScript / Serverless Framework<br />DB・データ基盤： MySQL / Aurora / DynamoDB /
+        OpenSearch<br />AWS： Lambda / SQS / Step Functions / ECS / S3<br />外部API： LINE API / SendGrid / Twilio /
+        Unlayer<br />AI開発支援・自動化： Claude / Cursor / Devin
       </p>
       <p class="project-summary">
         <strong class="project-label">【担当】</strong><br />
-        MA（マーケティングオートメーション）ツールの開発・運用を通じて、配信基盤および集計・分析基盤のパフォーマンス・コスト改善を主導。<br />POとの要件定義・優先順位付け、タスクアサイン、開発環境の整備を担当。<br />Claude・Cursor・Devin等のAI開発支援ツールも活用しつつ、チーム全体の開発効率化・認知負荷低減を推進しました。
+        MA（マーケティングオートメーション）ツールの開発・運用において、配信基盤のパフォーマンス向上・コスト最適化・可用性強化を推進。POとの要件定義・優先順位付け、タスクアサイン、開発環境の整備を担当。さらに、Devin等のAIツールを活用した知見の蓄積や問い合わせ対応の自動化など、チーム全体の生産性向上と認知負荷低減を主導。
       </p>
       <p class="project-results"><strong class="project-label">【成果・工夫点】</strong></p>
       <ul>
         <li>
-          <strong>大規模コスト削減:</strong>
-          集計・分析データ基盤をRedshiftからTrinoへ移行・最適化することで、計画対比で<strong>1,600万円のインフラコスト削減</strong>を達成。
+          <strong>配信性能を約50倍に向上 &amp; 運用コスト50%削減:</strong>
+          従来DynamoDBとMySQLに並行して書き込んでいた状態からDynamoDBへ一本化し、ホットインデックスを解消。Lambdaの並列実行数を一気に増やせるアーキテクチャへと刷新した結果、<strong>配信性能を従来の約50倍へ向上</strong>させ、運用コストを約50%削減。
         </li>
         <li>
-          <strong>配信速度・コストの劇的改善:</strong>
-          DynamoDBのホットインデックス解消と書き込みパターンの再設計を実施。<strong>配信処理時間を1/3に短縮し、運用コストを約50%削減</strong>。
+          <strong>Step Functions脱却による可用性向上:</strong>
+          大規模配信時の安定性と障害耐性を高めるため、Step Functions依存の構成から<strong>Lambda / SQSを組み合わせた非同期メッセージング構成へリアーキテクチャ</strong>を実施。高負荷時でも耐えうる堅牢な配信基盤を確立。
         </li>
         <li>
-          <strong>無障害リリースの実現:</strong>
-          高負荷を再現する負荷試験環境の構築およびリグレッションテスト自動化基盤を整備し、大規模リリースにおいても障害を未然に防ぐ品質保証体制を確立。
+          <strong>データ監視基盤の構築と無障害リリースの徹底:</strong>
+          データ整合性を保つデータ監視基盤を新規構築。リリース準備手順の標準化と事前検証体制を強化し、大規模リリースにおける本番障害を未然に防ぐ品質保証フローを確立。
         </li>
         <li>
-          <strong>開発体験（DX）向上と認知負荷低減:</strong>
-          形骸化したアラートチャンネルの整理や大規模なデッドコード削除、不必要なミーティング削減を徹底（引き算のエンジニアリング）。メンバーが開発に集中できる体制を確立。
+          <strong>RDSライトサイジングによるコスト削減:</strong>
+          データベースの負荷状況とワークロードを詳細に分析し、<strong>RDSのインスタンスタイプを適切に引き下げる（ライトサイジング）</strong>ことで、過剰なインフラコストの削減を達成。
+        </li>
+        <li>
+          <strong>AI（Devin）活用と開発体験（DX）の向上:</strong>
+          Devinを活用してプロダクトの知見共有・問い合わせの自動返信の仕組みを構築。さらに、形骸化していたアラートチャンネルのノイズ削減や大規模なデッドコード削除を徹底し、開発ノイズと運用対応コストの最小化を実現。
         </li>
       </ul>
 
@@ -185,23 +189,29 @@
       </h3>
       <p class="meta-row"><span>担当役割： データ / インフラエンジニア</span><span>エンジニア： 10名</span></p>
       <p class="tech-stack">
-        使用技術： Python / Go / PostgreSQL / Argo Events / Workflows / CD<br />データ処理： Apache Spark / Apache Kafka
-        / Trino / Podman<br />AWS： EKS / S3 / RDS
+        言語・ミドルウェア： Python / Go / Apache Spark / Apache Kafka / Trino / Podman<br />DB・データ基盤：
+        PostgreSQL / Amazon Redshift / Amazon Athena / Amazon S3 / Amazon RDS<br />インフラ・オーケストレーション：
+        Kubernetes (EKS) / Argo Events / Argo Workflows / Argo CD
       </p>
       <p class="project-summary">
         <strong class="project-label">【担当】</strong><br />
-        エンタープライズ企業導入案件に向けた高信頼なデータ基盤・処理パイプラインを構築。<br />Kubernetes上のArgo Events
-        / Argo Workflowsを活用したワークフロー自動化基盤と、ECカートシステムの膨大なデータを分散処理するSpark /
-        Trinoパイプラインを構築。
+        エンタープライズ企業導入に向けた高信頼なデータ基盤・処理パイプラインの設計・構築。Kubernetes（EKS）上のArgo Events /
+        Argo Workflowsを活用したワークフロー自動化基盤と、ECカートシステムの膨大なデータを分散処理するSpark /
+        Trinoパイプラインの構築を担当。また、分析・集計基盤の構成見直しと大規模な移行作業を主導。
       </p>
       <p class="project-results"><strong class="project-label">【成果・工夫点】</strong></p>
       <ul>
         <li>
-          <strong>エンタープライズ導入の納期死守:</strong> 厳格な納期制限がある導入案件において、移行・構築を完遂。
+          <strong>Trino移行による1,600万円のインフラコスト削減:</strong>
+          集計・分析データ基盤を従来のAmazon RedshiftからTrinoへ移行・最適化。クエリ効率の向上とリソース最適化を推進した結果、<strong>年間計画対比で1,600万円のインフラコスト削減</strong>を達成。
         </li>
         <li>
-          <strong>MRR拡大への貢献:</strong>
-          スムーズなオンボーディングを実現し、事業の<strong>MRR（月次定額収益）</strong>の積上げ・拡大に直接貢献しました。
+          <strong>エンタープライズ導入の厳格な納期死守:</strong>
+          大規模データ移行とパイプライン構築において、厳格な納期制約があるエンタープライズクライアントの導入案件を遅延なく完遂。
+        </li>
+        <li>
+          <strong>MRR（月次定額収益）拡大への貢献:</strong>
+          エンタープライズ向けCDP基盤の提供とスムーズなオンボーディングを実現し、事業のMRR積上げ・拡大に直接貢献。
         </li>
       </ul>
 
@@ -212,21 +222,27 @@
         <span>担当役割： 開発リーダー / テックリード（フルスタック）</span><span>エンジニア： 5名</span>
       </p>
       <p class="tech-stack">
-        使用技術： TypeScript / Python / Next.js / Rails / Pandas<br />AWS： Batch / Athena / CodeBuild / ECS / S3 / RDS
+        言語・FW： TypeScript / Next.js / Python / Ruby on Rails / Pandas<br />DB・データ処理： MySQL / Amazon RDS /
+        Amazon Athena<br />AWS・インフラ： AWS Batch / ECS / S3 / CodeBuild
       </p>
       <p class="project-summary">
         <strong class="project-label">【担当】</strong><br />
-        旧ECカートシステムから新システム（TypeScript +
-        Next.js等）へのリプレイスおよび大型クライアント対応のための移行基盤開発。<br />PMと移行要件を擦り合わせ、データ抽出・変換（ETL）を含む移行システムを開発・運用。
+        旧ECカートシステムから新システム（TypeScript / Next.js等）へのリプレイスに伴い、個別スクリプト運用に依存していたデータ移行運用の抜本的な標準化・基盤化を主導。PMとの仕様調整からデータ変換（ETL）ロジックの設計、移行システムの開発・パフォーマンスチューニング・運用までを一貫して担当。
       </p>
       <p class="project-results"><strong class="project-label">【成果・工夫点】</strong></p>
       <ul>
         <li>
-          <strong>移行アーキテクチャの刷新:</strong>
-          処理終盤のボトルネックであったSidekiqによる同期処理を廃し、移行システムからRails
-          runnerを起動・<strong>並列実行数を無制限に拡張</strong>可能な構成へ刷新。
+          <strong>個別スクリプト運用の全廃とナレッジの標準化:</strong>
+          従来は移行案件ごとに個別のスクリプトを作成・実行していた運用を改善し、汎用的な「移行システム」へ全面切り替え。属人化していた移行作業・個別スクリプトを完全に無くし、組織としての移行ナレッジの標準化を実現。
         </li>
-        <li><strong>大型クライアント移行の成功:</strong> 安全かつ高速な移行を成功させました。</li>
+        <li>
+          <strong>他部署跨ぎのボトルネック処理を自システムへ取り込み効率化:</strong>
+          移行当日の最終工程において、従来はバッチサーバー増強＋Sidekiqによる定期注文の再計算処理（他部署との調整が必要かつ低速）を行っていたフローを見直し。移行システム側で直接処理を完結できる仕組みを開発し、依存関係の解消と移行当日のオペレーション高速化を達成。
+        </li>
+        <li>
+          <strong>AWS Batchのチューニングによる大規模案件の完全移行システム化:</strong>
+          従来はデータ量の多さから移行システムの利用を避けていた大規模案件に対し、AWS Batchの並列実行数やリソース配置をはじめとするパフォーマンスチューニングを徹底。全ての案件で移行システムによる安全かつ高速な移行を可能にし、移行基盤としての完成度を大幅に高めました。
+        </li>
       </ul>
 
       <h3>
@@ -235,56 +251,60 @@
       </h3>
       <p class="meta-row"><span>担当役割： 開発リーダー / 運用保守</span><span>エンジニア： 5名</span></p>
       <p class="tech-stack">
-        使用技術： Ruby / jQuery / Backbone.js / MySQL / Rails / Sidekiq / RSpec<br />AWS： EC2 / S3 / RDS
+        言語・FW： Ruby / Ruby on Rails (メジャーバージョンアップ対応) / jQuery / Backbone.js / Sidekiq / RSpec<br />
+        DB・インフラ： MySQL / Amazon RDS / Amazon EC2 / Amazon S3<br />
+        決済ドメイン： クレジットカード、後払い、アプリ決済等の仕様・データ構造理解
       </p>
       <p class="project-summary">
         <strong class="project-label">【担当】</strong><br />
-        大規模ECカートシステムの安定運用、調査対応、および基盤アップデート。<br />本番障害のログ追跡・一次切り分け・データ緊急修正対応、Railsのメジャーバージョンアップ、主要画面のボトルネック調査・速度改善を担当。
+        大規模ECカートシステムの安定運用・保守・基盤健全化を推進。本番環境で発生するあらゆる障害対応（ログ調査、決済連携含む緊急データ補正対応等）を即座に遂行。併せて、販売ページのレスポンス改善およびRailsのメジャーバージョンアップ作業を担当。
       </p>
       <p class="project-results"><strong class="project-label">【成果・工夫点】</strong></p>
       <ul>
         <li>
-          <strong>解約抑止・CVR向上:</strong>
-          購入画面等のエンドユーザー向け画面のレスポンス速度を向上させ、ユーザー離脱を防ぐことで解約抑止・売上維持（<strong>CVR向上</strong>）に貢献。
+          <strong>ミスが許されない決済ドメイン等の確実な障害対応:</strong>
+          クレジットカードや後払い決済などが絡む複雑な本番障害において、深いログ解析と高精度なデータ修正を迅速に遂行。失敗が許されない決済データや注文データの正確性を担保し、システムの信頼性向上に貢献。
         </li>
         <li>
-          <strong>セキュリティリスクの大幅低減:</strong>
-          動作保証を担保しつつRailsバージョンアップをやり遂げ、セキュリティリスクを大幅低減しました。
+          <strong>販売ページの表示速度を大幅改善（3秒 → 約0.5秒）:</strong>
+          売上に直結する販売ページのパフォーマンス改善を実施。自前での独自キャッシュ構築はリスクが高いと判断し、ActiveRecordの発行クエリと標準キャッシュ構造を徹底的に解析・チューニング。表示速度を<strong>3秒から約0.5秒へと短縮</strong>させ、ユーザー離脱の防止（CVR向上）と解約抑止に大きく貢献。
+        </li>
+        <li>
+          <strong>網羅的なテスト実装による無障害でのRailsバージョンアップ:</strong>
+          AIによる自動化ツールが普及していない環境下において、影響範囲の特定とRSpecによる網羅的なテストスイートを自力で構築。動作保証を強固に担保した上で安全にバージョンアップをやり遂げ、大きな本番障害を起こさずにセキュリティリスクの低減と技術負債の解消を達成。
         </li>
       </ul>
 
-      <h3>5. ECカートシステム 新規機能開発・決済連携 <span class="period">2017年4月 〜 2020年6月</span></h3>
+      <h3>4. ECカートシステム 新規機能開発 <span class="period">2017年4月 〜 2020年6月</span></h3>
       <p class="meta-row"><span>担当役割： メンバー（フルスタック）</span><span>エンジニア： 20名</span></p>
       <p class="tech-stack">
-        使用技術： Ruby / jQuery / Backbone.js / MySQL / Rails / Sidekiq / RSpec<br />AWS： EC2 / S3 / RDS
+        言語・FW： Ruby / Ruby on Rails / JavaScript (jQuery, Backbone.js) / Sidekiq / RSpec<br />
+        DB・インフラ： MySQL / Amazon RDS / Amazon EC2 / Amazon S3
       </p>
       <p class="project-summary">
         <strong class="project-label">【担当】</strong><br />
-        ECカートシステムの管理画面からエンドユーザー向け購入UIに及ぶ機能開発をフルスタックに担当。
+        初期キャリアにおいて、大規模ECカートシステムの管理画面UIからエンドユーザー向け購入画面・バックエンド処理に至るまで、フルスタックに新規機能開発を担当。EC事業者の売上に直結する定期購入機能の拡張や管理画面の機能追加を推進。
       </p>
       <p class="project-results"><strong class="project-label">【成果・工夫点】</strong></p>
       <ul>
-        <li><strong>定期販売の配送サイクル拡張:</strong> 曜日指定等、定期販売の配送サイクル拡張を実施。</li>
-        <li><strong>管理画面・顧客管理:</strong> 管理画面UI改修および顧客結合機能を担当。</li>
         <li>
-          <strong>決済連携API開発:</strong>
-          外部決済プロバイダー（クレジットカード・後払い等）との決済連携API開発を担当。
+          <strong>定期販売における柔軟な配送サイクル機能の拡張:</strong>
+          EC事業者のリピート売上向上に不可欠な「曜日指定」「配送間隔指定」等の複雑な定期配送サイクル拡張を実装。注文生成バッチ（Sidekiq）およびデータベース構造の見直しを行い、スムーズな自動注文処理を実現。
+        </li>
+        <li>
+          <strong>管理画面UI刷新および顧客管理（顧客統合）機能の実装:</strong>
+          事業者側の運用効率化を目的とした管理画面UIの改修や、重複顧客のデータを安全に統合する「顧客結合機能」を開発。ユーザー体験（UX）向上とカスタマーサポート対応コストの削減に貢献。
         </li>
       </ul>
 
       <p class="company-history"><strong>株式会社DIVE INTO CODE</strong>（2016年2月 〜 2017年8月）</p>
-      <h3>1. プログラミング教育・技術メディア執筆 <span class="period">2016年2月 〜 2017年8月</span></h3>
-      <p class="meta-row"><span>担当役割： メンター / 執筆</span></p>
+      <h3>1. プログラミング教育・教材開発 <span class="period">2016年2月 〜 2017年8月</span></h3>
+      <p class="meta-row"><span>担当役割： メンター / 教材開発</span></p>
       <p class="tech-stack">使用技術： Ruby / Ruby on Rails / Git / Linux</p>
       <p class="project-summary">
-        <strong class="project-label">【担当】</strong><br />
-        受講生への技術指導と技術メディアの立ち上げ・運営。
+        <strong class="project-label">【担当業務・成果】</strong><br />
+        プログラミングスクールの受講生に対するRuby/Railsの個別に合わせた技術指導・学習支援を担当。併せて、未経験者が体系的にWeb開発を学べるよう、実践的なカリキュラムや解説テキスト等の受講生向け教材開発・改修を担当。技術の言語化と分かりやすいコンテンツ設計を通じて、受講生のスムーズな学習定着と開発スキル習得に貢献しました。
       </p>
-      <p class="project-results"><strong class="project-label">【成果・工夫点】</strong></p>
-      <ul>
-        <li><strong>個別技術指導:</strong> 受講生に対してRuby/Railsの個別に合わせた技術指導を実施。</li>
-        <li><strong>技術情報発信:</strong> オウンドメディアの記事執筆や動画解説を通じた技術情報発信を行いました。</li>
-      </ul>
     </main>
   </body>
 </html>
